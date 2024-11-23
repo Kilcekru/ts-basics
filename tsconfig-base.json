@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"allowUnusedLabels": false,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noUncheckedIndexedAccess": true,
+		"preserveWatchOutput": true,
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"strict": true
+	}
+}
