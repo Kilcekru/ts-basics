@@ -2,11 +2,13 @@ import tseslint from "typescript-eslint";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-	...tseslint.configs.recommendedTypeChecked,
+	// include typescript config, but limit it to typescript files
+	...tseslint.configs.recommendedTypeChecked.map((entry) => ({ ...entry, files: ["**/*.{ts,mts,cts,tsx}"] })),
 	{
+		files: ["**/*.{ts,mts,cts,tsx}"],
 		languageOptions: {
 			parserOptions: {
-				projectService: true,
+				projectService: true, // enable projectService
 			},
 		},
 		rules: {

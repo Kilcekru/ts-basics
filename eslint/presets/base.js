@@ -6,12 +6,14 @@ import configsTypescript from "../configs/typescript.js";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+	{
+		files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+	},
 	pluginJs.configs.recommended,
 	...configsTypescript,
 	...configsImport,
 	eslintConfigPrettier,
 	{
-		files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
 		languageOptions: {
 			ecmaVersion: 2022,
 			parserOptions: {

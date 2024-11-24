@@ -9,8 +9,13 @@ Provides opiniated basic configuration for typescript and eslint.
 	- [Configs](#configs)
 	- [Eslint and typescript](#eslint-and-typescript)
 	- [Performance](#performance)
+- [Migration](#migration)
+	- [pre 4.0 to 4](#pre-40-to-4)
+- [Changelog](#changelog)
 
 ## Setup
+
+Requires node >= 20.11
 
 Install ts-basics and the peer-dependency to typescript.\
 `npm i -D @kilcekru/ts-basics typescript@5.6`
@@ -54,7 +59,8 @@ You still have to add `include`, `outDir`,...
 ## eslint
 
 Eslint 9.15 is currently used.\
-All provided presets and configs only support flat config files. [See eslint.org configuration](https://eslint.org/docs/latest/use/configure/configuration-files)
+All provided presets and configs only support flat config files. [See eslint.org configuration](https://eslint.org/docs/latest/use/configure/configuration-files)\
+Presets and configs are only available as esm.
 
 ### Presets
 
@@ -110,3 +116,20 @@ This should work out of the box but if you have problems, read the typescript-es
 Eslint gets exponential slower on bigger projects.  
 If you use it in a big monorepo & experience speed or OOM problems, create a separate eslint.config.mjs for each package.  
 Linting each package will be faster and use less memory than linting everything at once.
+
+## Migration
+
+### pre 4.0 to 4
+
+- tsconfig: No changes should be needed. Updates for compilerOptions might affect your code. 
+- eslint: Before 4.0 .eslintrc.js was used. 4.0 now uses eslint flat configs.\
+  To use eslint config you need to update your repo to use flat config. [See eslint.org configuration](https://eslint.org/docs/latest/use/configure/configuration-files)\
+	It is advised to use a `eslint.config.mjs` file, because ts-basics only offers esm.
+	Follow the readme [Presets](#presets) to include ts-basics.\
+
+## Changelog
+- 4.0.0
+  - Updated node requirement to >=20.11.
+  - Update typescript peer-dependency to >=5.4 <5.7.
+  - Updated all tsconfigs to current standards, added more tsconfig flavours.
+  - Updated used eslint to 9.15, changed eslint config to flat config, added more flavours.

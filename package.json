@@ -1,6 +1,6 @@
 {
 	"name": "@kilcekru/ts-basics",
-	"version": "4.0.0-next.0",
+	"version": "4.0.0-next.1",
 	"description": "Configuration for typescript and eslint",
 	"keywords": [
 		"typescript",
@@ -23,13 +23,9 @@
 	},
 	"sideEffects": false,
 	"type": "module",
-	"main": "index.js",
-	"types": "index.d.ts",
 	"exports": {
-		".": {
-			"types": "./index.d.ts",
-			"default": "./index.js"
-		}
+		".": "./index.js",
+		"./tsconfig-*.json": "./tsconfig-*.json"
 	},
 	"files": [
 		"eslint/**/*",
@@ -37,7 +33,9 @@
 		"tsconfig-*.json"
 	],
 	"scripts": {
-		"clean:all": "rm -rf node_modules"
+		"clean:all": "rm -rf node_modules",
+		"lint": "eslint .",
+		"prepack": "pnpm lint"
 	},
 	"dependencies": {
 		"@eslint/js": "9.15.0",
