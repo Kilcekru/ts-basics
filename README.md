@@ -18,10 +18,10 @@ Provides opiniated basic configuration for typescript and eslint.
 Requires node >= 20.11
 
 Install ts-basics and the peer-dependency to typescript.\
-`npm i -D @kilcekru/ts-basics typescript@5.6`
+`npm i -D @kilcekru/ts-basics typescript@5`
 
-The peer dependency on typescript has a range of >=5.4 <5.7.\
-There is an upper bound on the typescript, because 5.7 is not yet supported by the used version of typescript-eslint.\
+The peer dependency on typescript has a range of >=5.4 <5.9.\
+There is an upper bound on the typescript, because 5.9 is not yet supported by the used version of typescript-eslint.\
 ts-basics includes all needed packages for eslint, so no need to install anything there, unless you want to extend the config.
 
 ## tsconfig
@@ -130,6 +130,6 @@ Linting each package will be faster and use less memory than linting everything 
 ## Changelog
 - 4.0.0
   - Updated node requirement to >=20.11.
-  - Update typescript peer-dependency to >=5.4 <5.7.
+  - Update typescript peer-dependency to >=5.4 <5.9.
   - Updated all tsconfigs to current standards, added more tsconfig flavours.
   - Updated used eslint to 9.15, changed eslint config to flat config, added more flavours.
