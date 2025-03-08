@@ -7,6 +7,8 @@ Provides opiniated basic configuration for typescript and eslint.
 - [eslint](#eslint)
 	- [Presets](#presets)
 	- [Configs](#configs)
+	- [eslint \& globals re-exports](#eslint--globals-re-exports)
+	- [Usage in scripts](#usage-in-scripts)
 	- [Eslint and typescript](#eslint-and-typescript)
 	- [Performance](#performance)
 - [Migration](#migration)
@@ -18,7 +20,7 @@ Provides opiniated basic configuration for typescript and eslint.
 Requires node >= 20.11
 
 Install ts-basics and the peer-dependency to typescript.\
-`npm i -D @kilcekru/ts-basics typescript@5`
+`npm i -D @kilcekru/ts-basics typescript@5.8`
 
 The peer dependency on typescript has a range of >=5.4 <5.9.\
 There is an upper bound on the typescript, because 5.9 is not yet supported by the used version of typescript-eslint.\
@@ -58,7 +60,7 @@ You still have to add `include`, `outDir`,...
 
 ## eslint
 
-Eslint 9.15 is currently used.\
+Eslint 9.22 is currently used.\
 All provided presets and configs only support flat config files. [See eslint.org configuration](https://eslint.org/docs/latest/use/configure/configuration-files)\
 Presets and configs are only available as esm.
 
@@ -67,8 +69,10 @@ Presets and configs are only available as esm.
 There are multiple presets available:
 - `base`: base config, no globals defined. [See eslint.org globals](https://eslint.org/docs/latest/use/configure/language-options#specifying-globals)\
   Includes plugins eslint, typescript-eslint, eslint-plugin-import, eslint-plugin-simple-import-sort, eslint-config-prettier and customizations.
+- `browser`: globals set for browser
 - `node`: globals set for nodejs
 - `react`: globals set for browser, includes plugins eslint-plugin-react, eslint-plugin-react-hooks.
+- `sertviceworker`: globals set for serviceworke
 - `solid`: golabls set for browser, includes plugin eslint-plugin-solid.
 - `webworker`: globals set for webworker
 
@@ -80,12 +84,10 @@ You can do custom overrides by adding plugins / settings after ts-basics.
 // eslint.config.mjs
 import tsBasics from "@kilcekru/ts-basics";
 
-export default [
-	...tsBasics.presets.react,
-	{
-		ignores: ["**/dist/"], // tell eslint to ignore all files within folders called dist
-	},
-];
+export default tsBasics.defineConfig([
+	...tsBasics.presets.react, // use the preset for react
+	tsBasics.globalIgnores(["**/dist/"]) // ignore all filtes within dist folders
+]);
 ```
 
 ### Configs
@@ -102,10 +104,26 @@ Multiple configs are available:
 import pluginJs from "@eslint/js";
 import tsBasics from "@kilcekru/ts-basics";
 
-export default [
-	pluginJs.configs.recommended,
-	...tsBasics.configs.typescript,
-];
+export default tsBasics.defineConfig([
+	pluginJs.configs.recommended, // use eslint recommended config
+	...tsBasics.configs.typescript, // use typescript config from tsbasics
+	{ languageOptions: { globals: tsBasics.globals.browser } } // Specify globals for browser
+]);
+```
+
+### eslint & globals re-exports
+
+ts-basics re-exports defineConfig & globalIgnores from eslint/config and also globals.\
+This makes it easier to adjust your config as needed.
+
+### Usage in scripts
+If your package manager (e.g. pnpm) does not hoist the bin of eslint, you can use the `basics-lint` bin provided by ts-basics in your scripts (which is just a reexport of the exlint bin).
+```json
+{
+	"scripts": {
+		"lint": "basics-lint src"
+	}
+}
 ```
 
 ### Eslint and typescript
@@ -131,5 +149,5 @@ Linting each package will be faster and use less memory than linting everything 
 - 4.0.0
   - Updated node requirement to >=20.11.
   - Update typescript peer-dependency to >=5.4 <5.9.
+  - Updated used eslint to 9.22, changed eslint config to flat config, added more flavours.
   - Updated all tsconfigs to current standards, added more tsconfig flavours.
-  - Updated used eslint to 9.15, changed eslint config to flat config, added more flavours.

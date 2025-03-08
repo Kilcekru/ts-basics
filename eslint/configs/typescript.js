@@ -1,7 +1,8 @@
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 /** @type {import('eslint').Linter.Config[]} */
-export default [
+export default defineConfig([
 	// include typescript config, but limit it to typescript files
 	...tseslint.configs.recommendedTypeChecked.map((entry) => ({ ...entry, files: ["**/*.{ts,mts,cts,tsx}"] })),
 	{
@@ -29,4 +30,4 @@ export default [
 			"@typescript-eslint/require-await": "off", // functions implementing a type sometimes have to return Promise even without await. async is easier than multiple Promise.resolve
 		},
 	},
-];
+]);

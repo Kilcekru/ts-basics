@@ -1,8 +1,9 @@
+import { defineConfig } from "eslint/config";
 import pluginImport from "eslint-plugin-import";
 import pluginSimpleImportSort from "eslint-plugin-simple-import-sort";
 
 /** @type {import('eslint').Linter.Config[]} */
-export default [
+export default defineConfig([
 	{
 		name: pluginImport.flatConfigs.recommended.name,
 		plugins: pluginImport.flatConfigs.recommended.plugins,
@@ -26,4 +27,4 @@ export default [
 			"simple-import-sort/exports": "error",
 		},
 	},
-];
+]);
