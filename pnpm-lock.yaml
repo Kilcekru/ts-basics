@@ -11,9 +11,6 @@ importers:
       '@eslint/js':
         specifier: 9.22.0
         version: 9.22.0
-      eslint:
-        specifier: 9.22.0
-        version: 9.22.0
       eslint-config-prettier:
         specifier: 10.1.1
         version: 10.1.1(eslint@9.22.0)
@@ -39,6 +36,9 @@ importers:
         specifier: 8.26.0
         version: 8.26.0(eslint@9.22.0)(typescript@5.8.2)
     devDependencies:
+      eslint:
+        specifier: 9.22.0
+        version: 9.22.0
       typescript:
         specifier: 5.8.2
         version: 5.8.2

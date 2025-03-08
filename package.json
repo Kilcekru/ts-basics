@@ -1,6 +1,6 @@
 {
 	"name": "@kilcekru/ts-basics",
-	"version": "4.0.0-next.5",
+	"version": "4.0.0-next.6",
 	"description": "Configuration for typescript and eslint",
 	"keywords": [
 		"typescript",
@@ -30,9 +30,6 @@
 		},
 		"./tsconfig-*.json": "./tsconfig-*.json"
 	},
-	"bin": {
-		"basics-lint": "basics-lint.cjs"
-	},
 	"files": [
 		"eslint/**/*",
 		"index.js",
@@ -45,7 +42,6 @@
 	},
 	"dependencies": {
 		"@eslint/js": "9.22.0",
-		"eslint": "9.22.0",
 		"eslint-config-prettier": "10.1.1",
 		"eslint-plugin-import": "2.31.0",
 		"eslint-plugin-react": "7.37.4",
@@ -56,9 +52,11 @@
 		"typescript-eslint": "8.26.0"
 	},
 	"devDependencies": {
+		"eslint": "9.22.0",
 		"typescript": "5.8.2"
 	},
 	"peerDependencies": {
+		"eslint": "^9",
 		"typescript": ">=5.4 <5.9"
 	}
 }

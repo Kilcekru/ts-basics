@@ -8,7 +8,6 @@ Provides opiniated basic configuration for typescript and eslint.
 	- [Presets](#presets)
 	- [Configs](#configs)
 	- [eslint \& globals re-exports](#eslint--globals-re-exports)
-	- [Usage in scripts](#usage-in-scripts)
 	- [Eslint and typescript](#eslint-and-typescript)
 	- [Performance](#performance)
 - [Migration](#migration)
@@ -20,11 +19,11 @@ Provides opiniated basic configuration for typescript and eslint.
 Requires node >= 20.11
 
 Install ts-basics and the peer-dependency to typescript.\
-`npm i -D @kilcekru/ts-basics typescript@5.8`
+`npm i -D @kilcekru/ts-basics typescript@5.8 eslint@9`
 
-The peer dependency on typescript has a range of >=5.4 <5.9.\
+The peer dependency on typescript has a range of `>=5.4 <5.9`.\
 There is an upper bound on the typescript, because 5.9 is not yet supported by the used version of typescript-eslint.\
-ts-basics includes all needed packages for eslint, so no need to install anything there, unless you want to extend the config.
+The peer dependency on eslint has a range of `^9`.
 
 ## tsconfig
 
@@ -60,8 +59,7 @@ You still have to add `include`, `outDir`,...
 
 ## eslint
 
-Eslint 9.22 is currently used.\
-All provided presets and configs only support flat config files. [See eslint.org configuration](https://eslint.org/docs/latest/use/configure/configuration-files)\
+All provided presets and configs only support flat config files of eslint@9. [See eslint.org configuration](https://eslint.org/docs/latest/use/configure/configuration-files)\
 Presets and configs are only available as esm.
 
 ### Presets
@@ -116,16 +114,6 @@ export default tsBasics.defineConfig([
 ts-basics re-exports defineConfig & globalIgnores from eslint/config and also globals.\
 This makes it easier to adjust your config as needed.
 
-### Usage in scripts
-If your package manager (e.g. pnpm) does not hoist the bin of eslint, you can use the `basics-lint` bin provided by ts-basics in your scripts (which is just a reexport of the exlint bin).
-```json
-{
-	"scripts": {
-		"lint": "basics-lint src"
-	}
-}
-```
-
 ### Eslint and typescript
 typescript-eslint is configured with projectservice enabled. [See typescript-eslint.io projectservice](https://typescript-eslint.io/packages/parser/#projectservice)\
 This should work out of the box but if you have problems, read the typescript-eslint docs to configure service options or projects.
@@ -149,5 +137,5 @@ Linting each package will be faster and use less memory than linting everything 
 - 4.0.0
   - Updated node requirement to >=20.11.
   - Update typescript peer-dependency to >=5.4 <5.9.
-  - Updated used eslint to 9.22, changed eslint config to flat config, added more flavours.
+  - eslint is now a peerDependeny, changed eslint config to flat config, added more flavours.
   - Updated all tsconfigs to current standards, added more tsconfig flavours.
