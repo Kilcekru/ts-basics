@@ -1,6 +1,6 @@
 {
 	"name": "@kilcekru/ts-basics",
-	"version": "4.0.0-next.4",
+	"version": "4.0.0-next.5",
 	"description": "Configuration for typescript and eslint",
 	"keywords": [
 		"typescript",
@@ -31,7 +31,7 @@
 		"./tsconfig-*.json": "./tsconfig-*.json"
 	},
 	"bin": {
-		"basics-lint": "basics-lint.js"
+		"basics-lint": "basics-lint.cjs"
 	},
 	"files": [
 		"eslint/**/*",
