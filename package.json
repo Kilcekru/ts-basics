@@ -1,6 +1,6 @@
 {
 	"name": "@kilcekru/ts-basics",
-	"version": "5.0.0-next.0",
+	"version": "5.0.0-next.1",
 	"description": "Configuration for typescript and eslint",
 	"keywords": [
 		"typescript",
@@ -41,7 +41,7 @@
 		"prepack": "pnpm lint"
 	},
 	"dependencies": {
-		"@eslint/js": "10.0.1",
+		"@eslint/js": "9.39.4",
 		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-import": "2.32.0",
 		"eslint-plugin-react": "7.37.5",
@@ -52,11 +52,11 @@
 		"typescript-eslint": "8.59.4"
 	},
 	"devDependencies": {
-		"eslint": "10.4.0",
+		"eslint": "^9.39.4",
 		"typescript": "6.0.3"
 	},
 	"peerDependencies": {
-		"eslint": "^10",
+		"eslint": "^9||^10",
 		"typescript": "^6"
 	}
 }

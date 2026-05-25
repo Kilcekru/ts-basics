@@ -137,7 +137,6 @@ Linting each package will be faster and use less memory than linting everything 
 - 5.0.0
 	- Updated node requirement to >=22.14.
 	- Update typescript peer-dependency to ^6.
-	- Updated eslint peer-dependency to ^10.
 - 4.0.0
 	- Updated node requirement to >=20.11.
 	- Update typescript peer-dependency to >=5.4 <5.9.
