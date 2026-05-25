@@ -16,7 +16,7 @@ Provides opiniated basic configuration for typescript and eslint.
 
 ## Setup
 
-Requires node >= 20.11
+Requires node >= 22.14
 
 Install ts-basics and the peer-dependency to typescript.\
 `npm i -D @kilcekru/ts-basics typescript@5.8 eslint@9`
@@ -31,8 +31,8 @@ There are multiple flavours available:
 - `tsconfig-base`: base configuration, does not set module, moduleResolution, target, lib.
 - `tsconfig-browser-app`: for browser, no jsx config (es2023 is used, support for older browsers not given)
 - `tsconfig-browser-library`: for browser, no jsx config (enables declaration files)
-- `tsconfig-node-app`: for node >=20.11
-- `tsconfig-node-library`: for node >=20.11 (enables declaration files)
+- `tsconfig-node-app`: for node >=22.14
+- `tsconfig-node-library`: for node >=22.14 (enables declaration files)
 - `tsconfig-react-app`: for browser using react
 - `tsconfig-react-library`: for browser using react (enables declaration files)
 - `tsconfig-solid-app`: for browser using solidJs
@@ -129,13 +129,17 @@ Linting each package will be faster and use less memory than linting everything 
 
 - tsconfig: No changes should be needed. Updates for compilerOptions might affect your code. 
 - eslint: Before 4.0 .eslintrc.js was used. 4.0 now uses eslint flat configs.\
-  To use eslint config you need to update your repo to use flat config. [See eslint.org configuration](https://eslint.org/docs/latest/use/configure/configuration-files)\
+	To use eslint config you need to update your repo to use flat config. [See eslint.org configuration](https://eslint.org/docs/latest/use/configure/configuration-files)\
 	It is advised to use a `eslint.config.mjs` file, because ts-basics only offers esm.
 	Follow the readme [Presets](#presets) to include ts-basics.\
 
 ## Changelog
+- 5.0.0
+	- Updated node requirement to >=22.14.
+	- Update typescript peer-dependency to ^6.
+	- Updated eslint peer-dependency to ^10.
 - 4.0.0
-  - Updated node requirement to >=20.11.
-  - Update typescript peer-dependency to >=5.4 <5.9.
-  - eslint is now a peerDependeny, changed eslint config to flat config, added more flavours.
-  - Updated all tsconfigs to current standards, added more tsconfig flavours.
+	- Updated node requirement to >=20.11.
+	- Update typescript peer-dependency to >=5.4 <5.9.
+	- eslint is now a peerDependeny, changed eslint config to flat config, added more flavours.
+	- Updated all tsconfigs to current standards, added more tsconfig flavours.

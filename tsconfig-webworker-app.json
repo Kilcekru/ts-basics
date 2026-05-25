@@ -1,6 +1,6 @@
 {
 	"extends": "./tsconfig-browser-app.json",
 	"compilerOptions": {
-		"lib": ["ES2023", "WebWorker"]
+		"lib": ["ES2025", "WebWorker"]
 	}
 }

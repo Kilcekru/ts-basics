@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"allowUnusedLabels": false,
 		"esModuleInterop": true,
+		"exactOptionalPropertyTypes": true,
 		"forceConsistentCasingInFileNames": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
